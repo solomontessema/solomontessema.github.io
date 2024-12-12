@@ -1,0 +1,178 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  background-color: #f8f9fa;
+  line-height: 1.6;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(27, 117, 187, 0.8);
+  border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+  padding: 10px 0;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 15px; /* Align the hamburger icon to the left */
+}
+
+.menu-links {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.menu-links a:hover {
+  background-color: rgba(27, 117, 187);
+  border: 1px solid #f29e3b;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start; /* Align the links to the left */
+    width: 50%; /* Cover half of the screen */
+    padding-left: 15px; /* Add some padding to the left */
+  }
+
+  .menu-links.show {
+    display: flex;
+  }
+
+  .menu-links a {
+    display: block;
+    margin: 10px 0;
+    text-align: left; /* Align the text to the left */
+  }
+}
+
+  .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+@media (min-width: 780px) {
+  .container {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 780px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+
+section {
+  margin-top: 60px;  
+  padding:10px;
+  background-color: white;
+  position: relative;
+  scroll-margin-top: 70px; /* Adjust based on your nav bar height */
+}
+
+
+
+article {
+background-color: #e0f7fa;
+padding:20px;
+height:200px;
+margin-bottom:5px;
+}
+
+article:hover {
+  background-color: hsl(187, 100%, 80%);
+}
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: white;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      color: #0074D9;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+.viz {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+  padding: 15px;
+  margin-bottom: 20px; 
+}
+
+.viz:hover { filter: brightness(70%);}
+
+
+a, a:visited, a:hover, a:active { text-decoration: none !important; }
+
+i {
+color: #f29e3b; 
+font-size: 1.4rem; 
+margin-right: 10px;
+}
+
+.profile-picture {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .profile-picture {
+    display: none;
+  }
+}
+
+
+#GetInTouch {
+align-items: center; 
+text-align: center; 
+background-color: #f7f7f7; 
+padding: 40px; 
+margin-top: 40px;
+          }
+
+iframe {
+     height: 800px; 
+    }
+
+
+  @media (max-width: 768px) {
+    #GetInTouch {
+padding:0px; 
+          }
+    iframe {
+      height: 800px; 
+    }
+  }

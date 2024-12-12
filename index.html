@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solomon Tessema - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function toggleMenu() {
+    const menuLinks = document.querySelector('.menu-links');
+    menuLinks.classList.toggle('show');
+  }
+
+  // Attach the toggleMenu function to the menu icon
+  const menuIcon = document.querySelector('.menu-icon');
+  menuIcon.addEventListener('click', toggleMenu);
+
+  // Hide the menu when a link is clicked
+  const links = document.querySelectorAll('.menu-links a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      const menuLinks = document.querySelector('.menu-links');
+      menuLinks.classList.remove('show');
+    });
+  });
+});
+
+
+</script>
+
+
+</head>
+<body>
+
+<nav>
+  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  <div class="menu-links">
+    <a href="#home">Home</a>
+    <a href="#resume">Resume</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+
+<div class="container">
+<section  class="w3-row-padding" id="home">
+
+<div class="w3-twothird jumbotron" style="padding-bottom: 20px;">
+<div>
+  <h1 style="color:#0074D9;"> <span style="background-color:#f29e3b;color:white;">Hi!</span> I'm Solomon Tessema</h1>
+
+  <p>A Data Scientist and AI Developer with over 10 years of experience transforming raw data into actionable insights across mortgage servicing, credit analytics, healthcare, and retail. My expertise lies in Python-based analytics, machine learning, and data visualization to support decision-making and solve complex challenges.</p>
+
+  <p>With a strong foundation in mathematics (MS, Indiana State University) and software engineering, I specialize in predictive modeling, large-scale data cleaning, and interactive dashboards using tools like Python, SQL, TensorFlow, and Tableau.</p>
+
+  <p>Outside of work, I design geodesic domes, engage in astrophotography, and build robots with my kids, blending creativity with technology to inspire innovative thinking.</p>
+  </div>
+<div>
+<blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;"><h3>Transforming data into actionable insights, I harness the power of AI and visualization to solve complex challenges and inspire innovative thinking.</h3></blockquote>
+</div>
+</div>
+
+<div class="w3-third" style="display: flex; flex-direction: column; align-items: center;">
+  <img src="image/profile_picture_2.jpg" alt="Solomon Tessema's Profile Picture" class="profile-picture">
+</div>
+
+</section>
+
+
+<section id="resume" style="background-color: #f9f9f9;" class="w3-row-padding">
+    <div  class="w3-half" style="flex: 1; min-width: 300px;">
+
+      <h3 style="color: #0074D9;">Experience</h3>
+      <ul>
+        <li>
+          Metrocare Services (Sep 2021 – Present)<br>
+          <em>Data Analyst</em>
+          <ul>
+            <li>Developed healthcare analytics tools using Python to improve mental health service delivery.</li>
+            <li>Created interactive Tableau dashboards for real-time metrics visualization.</li>
+          </ul>
+	  <br>
+        </li>
+        <li>
+          Caliber Home Loans (Mar 2021 – Sep 2021)<br>
+          <em>Data Analyst</em>
+          <ul>
+            <li>Enhanced predictive models for mortgage servicing, improving accuracy by 15%.</li>
+            <li>Streamlined data cleaning processes, reducing pipeline processing time by 30%.</li>
+          </ul>
+	<br>
+        </li>
+        <li>
+          Lennox International (Jun 2019 – Aug 2020)<br>
+          <em>Data Scientist</em>
+          <ul>
+            <li>Conducted exploratory data analysis (EDA) on HVAC lifecycle data.</li>
+            <li>Developed predictive maintenance models using TensorFlow.</li>
+          </ul>
+	<br>
+        </li>
+        <li>
+          Digital Matrix Systems (Jan 2018 – Dec 2018)<br>
+          <em>Data Analyst</em>
+          <ul>
+            <li>Built predictive financial models, achieving 85% accuracy.</li>
+          </ul>
+	<br>
+        </li>
+        <li>
+          GXT LTD (May 2014 – Dec 2017)<br>
+          <em>Geospatial Data/Software Developer</em>
+          <ul>
+            <li>Developed geospatial tools for telecom infrastructure projects.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div  class="w3-half" style="flex: 1; min-width: 300px;">
+      <h3 style="color: #0074D9;">Education</h3>
+      <ul>
+        <li>
+          MS: Mathematics - Indiana State University, August 2022<br>
+          Focused on advanced statistical modeling, data analysis techniques, and computational methods for real-world problem-solving.
+        </li>
+	<br>
+        <li>
+          BA: Mathematics - Southern New Hampshire University, August 2020<br>
+          Coursework included linear algebra, probability, and optimization with an emphasis on applications in data science and analytics.
+        </li>
+	<br>
+        <li>
+          AS: Software Engineering - Dallas College, December 2017<br>
+          Gained expertise in programming, database management, and software development methodologies.
+        </li>
+      </ul>
+
+      <h3 style="color: #0074D9;">Skills</h3>
+<ul>
+  <li>Programming: Python, SQL, .NET</li>
+  <li>Data Science Libraries: Pandas, NumPy, TensorFlow, Scikit-learn</li>
+  <li>Data Visualization: Tableau, Matplotlib, Seaborn</li>
+  <li>Other: Data Cleaning, Feature Engineering, Predictive Modeling</li>
+  <li>Soft Skills: Problem-Solving, Communication, Team Collaboration</li>
+</ul>
+
+<h3 style="color: #0074D9;">Certifications</h3>
+<ul>
+  <li>MCSE: Data Management and Analytics – Certified 2020</li>
+  <li>MCSD: App Builder – Certified 2021</li>
+  <li>Tableau Desktop – Certified 2020</li>
+  <li>Microsoft Certified: Azure Data Scientist Associate – Certified 2023</li>
+</ul>
+<div style="text-align: right;">
+    <a href="pdf/(Data Scientist) Solomon Tessema.pdf" style="color:white;background-color:#f29e3b;padding:10px 20px;text-decoration:none;border-radius:5px;display:inline-block;margin:20px;">Download Resume</a>
+</div>
+
+
+    </div>
+</section>
+ 
+
+
+<section id="portfolio" style="background-color: #f9f9f9;">
+  <a href="#portfolio" style="text-decoration:none;">
+    <h1 style="color:#0074D9;">Portfolio</h1>
+  </a>
+
+  <blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;">
+    "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
+  </blockquote>
+
+<div class="w3-row-padding">
+  <div class="w3-third">
+    <a href="https://public.tableau.com/views/CO2EMISSIONSTRAININGVIDEO/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
+      <img class="viz" alt='CO2 Per Capita' src='image/tableau_co2_1.png' />
+    </a>
+  </div>
+  <div class="w3-third">
+    <a href="https://public.tableau.com/views/Employeeattrition_17333781875670/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
+      <img class="viz" alt='CO2 Per Capita' src='image/tableau_employee_attrition_1.png' />
+    </a>
+  </div>
+  <div class="w3-third">
+    <a href="https://public.tableau.com/views/GlobalSuperstore_17333805236400/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
+      <img class="viz" alt='CO2 Per Capita' src='image/tableau_global_superstore_1.png' />
+    </a>
+  </div>
+</div>
+
+
+
+</section>
+
+
+
+  <section id="blog">
+    <div class="w3-row-padding">
+      <div class="w3-third">
+      <article>
+	<a href="https://datascienceelements.blogspot.com/2024/12/sentiment-analysis-using-support-vector.html">
+        <h2>Sentiment Analysis Using SVM</h2>
+        <p>A deep dive into binary sentiment classification using the GoEmotions dataset...</p>
+	</a>
+     </article>
+	</div>
+	<div class="w3-third">
+     <article>
+	<a href="https://datascienceelements.blogspot.com/2018/09/httpsgoo.html">
+        <h2>The Role of AI in The Development of Autonomous Vehicles</h2>
+        <p>Autonomous vehicles represent one of the most transformative innovations...</p>
+	</a>
+     </article>
+	</div>
+	<div class="w3-third">
+     <article>	
+	<a href="https://datascienceelements.blogspot.com/2017/12/normalization-in-database-systems.html">
+        <h2>Normailization in Database Systems</h2>
+        <p>In database systems, normalization is the organization of data to reduce redundancy and improve....</p>
+	</a>
+     </article>
+</div>
+</div>
+
+    <div class="w3-row-padding">
+      <div class="w3-third">
+      <article>
+	<a href="https://datascienceelements.blogspot.com/2016/08/blog-post_19.html">
+        <h2>Using Time-Series Analysis for Crime Prediction and Insights</h2>
+        <p>Time-series analysis (TSA) is an essential statistical method for studying temporal data...</p>
+	</a>
+     </article>
+	</div>
+	<div class="w3-third">
+     <article>
+	<a href="https://datascienceelements.blogspot.com/2016/08/var-divelement-document.html">
+        <h2>Predicting Forest Fires Using Regression</h2>
+        <p>Forest fires are a growing concern globally, as their frequency and intensity have been increasing in recent years...</p>
+	</a>
+     </article>
+	</div>
+	<div class="w3-third">
+     <article>	
+	<a href="https://datascienceelements.blogspot.com/2016/08/blog-post_17.html">
+        <h2>Sales Forecasting Using Long Short-Term Memory</h2>
+        <p>Univariate time-series forecasting focuses on predicting futuree....</p>
+	</a>
+     </article>
+</div>
+</div>
+</section>
+
+
+<section id="contact">
+<div class="w3-row-padding" style="display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center; background-color: #e0f7fa; padding: 20px;"> 
+  <a href="mailto:solomon.tessema@outlook.com" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+  <a href="https://www.linkedin.com/in/solomon-tessema" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fab fa-linkedin" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+  <a href="https://github.com/solomon-tessema" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fab fa-github" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+  <a href="https://www.kaggle.com/solomonTTessema" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fab fa-kaggle" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+  <a href="https://public.tableau.com/profile/solomon.tessema/vizzes" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fas fa-chart-bar" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+  <a href="https://datascienceelements.blogspot.com" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="w3-quarter" style="flex: 1; text-align: center;">
+      <i class="fab fa-blogger" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+    </div>
+  </a>
+ 
+
+</div>
+
+
+<div id = "GetInTouch">
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSc9kIrWxSBDaDVaf7oiY4fCBndWKy-surA07EcWN_eZepvxdQ/viewform?embedded=true" 
+    style="width: 100%; height: 1000px; border: none; margin: 0;">
+    Loading…
+  </iframe>
+</div>
+</section>
+
+
+</div>
+
+
+
+<footer>
+  
+  <p>&copy; 2024 Solomon Tessema</p>
+</footer>
+
+</body>
+</html>
