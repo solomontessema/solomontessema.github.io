@@ -31,8 +31,107 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Replace these variables with your own details
+const spreadsheetId = "1uC34hI5AT2Uxrp5rVmEpsc07-4aRrKnRaMcjpiUVZJw";
+const apiKey = "AIzaSyCAY4rjXddC2nK1TNbu5SEQawCYLty9k04";
+const range = "blog_list!A1:B";
+const tableauRange = "viz_list!A1:C"; // Renamed variable to avoid conflict
+const tableauUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${tableauRange}?key=${apiKey}`;
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+// Function to fetch and populate data
+async function populateArticles() {
+  try {
+    // Fetch data from the Google Sheet
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Get the specific container using its ID
+    const container = document.getElementById("blog_div");
+
+    // Check if data exists
+    if (data.values && data.values.length > 1) {
+      // Remove header row (assumes the first row is a header)
+      const rows = data.values.slice(1);
+
+      // Dynamically create articles
+      rows.forEach(row => {
+        const [name, link] = row; // Get name and link from the row
+
+        // Create article element
+        const articleDiv = document.createElement("div");
+        articleDiv.className = "w3-third";
+
+        const article = `
+          <article>
+            <a href="${link}">
+              <h2>${name}</h2>
+              <p>Click to read.</p>
+            </a>
+          </article>
+        `;
+
+        articleDiv.innerHTML = article;
+        container.appendChild(articleDiv);
+      });
+    } else {
+      console.error("No data found in the Google Sheet.");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+// Call the function
+populateArticles();
+
+
+// Function to fetch and populate Tableau visualizations
+async function populateVisualizations() {
+  try {
+    // Fetch data from the Google Sheet
+    const response = await fetch(tableauUrl);
+    const data = await response.json();
+
+    // Get the container by ID
+    const container = document.getElementById("tableau_viz_container");
+
+    // Check if data exists
+    if (data.values && data.values.length > 1) {
+      // Remove header row (assumes the first row is a header)
+      const rows = data.values.slice(1);
+
+      // Dynamically create visualization cards
+      rows.forEach(row => {
+        const [name, link, image] = row; // Get name, link, and image from the row
+
+        // Create visualization element
+        const vizDiv = document.createElement("div");
+        vizDiv.className = "w3-third";
+
+        const viz = `
+          <a href="${link}">
+            <img class="viz" alt="${name}" src="${image}" />
+          </a>
+        `;
+
+        vizDiv.innerHTML = viz;
+        container.appendChild(vizDiv);
+      });
+    } else {
+      console.error("No data found in the Google Sheet.");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+// Call the function
+populateVisualizations();
+
 
 </script>
+
 
 
 </head>
@@ -180,83 +279,17 @@ document.addEventListener('DOMContentLoaded', function() {
     "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
   </blockquote>
 
-<div class="w3-row-padding">
-  <div class="w3-third">
-    <a href="https://public.tableau.com/views/CO2EMISSIONSTRAININGVIDEO/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
-      <img class="viz" alt='CO2 Per Capita' src='image/tableau_co2_1.png' />
-    </a>
-  </div>
-  <div class="w3-third">
-    <a href="https://public.tableau.com/views/Employeeattrition_17333781875670/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
-      <img class="viz" alt='CO2 Per Capita' src='image/tableau_employee_attrition_1.png' />
-    </a>
-  </div>
-  <div class="w3-third">
-    <a href="https://public.tableau.com/views/GlobalSuperstore_17333805236400/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
-      <img class="viz" alt='CO2 Per Capita' src='image/tableau_global_superstore_1.png' />
-    </a>
-  </div>
+<div id="tableau_viz_container" class="w3-row-padding">
+  <!-- Tableau visualizations will be dynamically added here -->
 </div>
-
-
 
 </section>
 
 
 
-  <section id="blog">
-    <div class="w3-row-padding">
-      <div class="w3-third">
-      <article>
-	<a href="https://datascienceelements.blogspot.com/2024/12/sentiment-analysis-using-support-vector.html">
-        <h2>Sentiment Analysis Using SVM</h2>
-        <p>A deep dive into binary sentiment classification using the GoEmotions dataset...</p>
-	</a>
-     </article>
-	</div>
-	<div class="w3-third">
-     <article>
-	<a href="https://datascienceelements.blogspot.com/2018/09/httpsgoo.html">
-        <h2>The Role of AI in The Development of Autonomous Vehicles</h2>
-        <p>Autonomous vehicles represent one of the most transformative innovations...</p>
-	</a>
-     </article>
-	</div>
-	<div class="w3-third">
-     <article>	
-	<a href="https://datascienceelements.blogspot.com/2017/12/normalization-in-database-systems.html">
-        <h2>Normailization in Database Systems</h2>
-        <p>In database systems, normalization is the organization of data to reduce redundancy and improve....</p>
-	</a>
-     </article>
-</div>
-</div>
-
-    <div class="w3-row-padding">
-      <div class="w3-third">
-      <article>
-	<a href="https://datascienceelements.blogspot.com/2016/08/blog-post_19.html">
-        <h2>Using Time-Series Analysis for Crime Prediction and Insights</h2>
-        <p>Time-series analysis (TSA) is an essential statistical method for studying temporal data...</p>
-	</a>
-     </article>
-	</div>
-	<div class="w3-third">
-     <article>
-	<a href="https://datascienceelements.blogspot.com/2016/08/var-divelement-document.html">
-        <h2>Predicting Forest Fires Using Regression</h2>
-        <p>Forest fires are a growing concern globally, as their frequency and intensity have been increasing in recent years...</p>
-	</a>
-     </article>
-	</div>
-	<div class="w3-third">
-     <article>	
-	<a href="https://datascienceelements.blogspot.com/2016/08/blog-post_17.html">
-        <h2>Sales Forecasting Using Long Short-Term Memory</h2>
-        <p>Univariate time-series forecasting focuses on predicting futuree....</p>
-	</a>
-     </article>
-</div>
+<section id="blog">
+<div id="blog_div" class="w3-row-padding">
+  <!-- Articles will be dynamically added here -->
 </div>
 </section>
 
