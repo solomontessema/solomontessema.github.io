@@ -46,6 +46,7 @@ nav {
   background-color: rgba(27, 117, 187);
   border: 1px solid #f29e3b;
 }
+ 
 
 @media (max-width: 768px) {
   .menu-icon {
@@ -98,17 +99,61 @@ section {
   scroll-margin-top: 70px; /* Adjust based on your nav bar height */
 }
 
-
-
-article {
-background-color: #e0f7fa;
-padding:20px;
-height:200px;
-margin-bottom:5px;
+ 
+.tiles_container_div {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px;"
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for 4 tiles per row */
+  background-color: white; /* Light background for the grid container */
+  justify-content: center; /* Centers the grid */
+}
+ 
+.square {
+  width: 100%; /* Automatically adjusts based on grid column width */
+  height: auto; /* Let the height adjust dynamically */
+  max-width: 280px; /* Prevent tiles from becoming too large */
+  background-color: white;
+  border-radius: 5px;
+border-color: #d0d0d0;
+border-width: 1px;
+border-style: solid;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none; /* Removes default link styles */
+  color: inherit; /* Inherits text color */
+  margin:10px;
+  background-color:#f9f9f9;
 }
 
-article:hover {
-  background-color: hsl(187, 100%, 80%);
+ 
+.square img {
+  width: 100%; /* Fits the image to the width of the tile */
+  height: 50%; /* Restricts the image to the top half of the tile */
+  object-fit: cover; /* Crops the image to fit without distortion */
+}
+
+ 
+.square p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px; /* Adjusted font size to fit smaller tiles */
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  height: 50%; /* Ensures the caption takes the bottom half of the tile */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+}
+
+ 
+.square:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+  transform: translateY(-5px); /* Slight lift on hover */
+  transition: all 0.3s ease-in-out;
 }
 
     footer {
@@ -125,18 +170,8 @@ article:hover {
       text-decoration: underline;
     }
 
-.viz {
-  width: 100%;
-  height: auto;
-  border: 1px solid #000;
-  padding: 15px;
-  margin-bottom: 20px; 
-}
-
-.viz:hover { filter: brightness(70%);}
-
-
-a, a:visited, a:hover, a:active { text-decoration: none !important; }
+ 
+ 
 
 i {
 color: #f29e3b; 
@@ -147,6 +182,8 @@ margin-right: 10px;
 .profile-picture {
   width: 100%;
 }
+
+
 
 @media (max-width: 768px) {
   .profile-picture {

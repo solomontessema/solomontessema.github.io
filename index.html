@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Replace these variables with your own details
 const spreadsheetId = "1uC34hI5AT2Uxrp5rVmEpsc07-4aRrKnRaMcjpiUVZJw";
 const apiKey = "AIzaSyCAY4rjXddC2nK1TNbu5SEQawCYLty9k04";
-const range = "blog_list!A1:B";
+const range = "blog_list!A1:C"; // Updated range to include the Image column
 const tableauRange = "viz_list!A1:C"; // Renamed variable to avoid conflict
 const tableauUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${tableauRange}?key=${apiKey}`;
 const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+ 
 
-// Function to fetch and populate data
 async function populateArticles() {
   try {
     // Fetch data from the Google Sheet
@@ -56,23 +56,17 @@ async function populateArticles() {
 
       // Dynamically create articles
       rows.forEach(row => {
-        const [name, link] = row; // Get name and link from the row
+        const [name, link, image] = row; // Get name, link, and image URL from the row
 
         // Create article element
-        const articleDiv = document.createElement("div");
-        articleDiv.className = "w3-third";
-
         const article = `
-          <article>
-            <a href="${link}">
-              <h2>${name}</h2>
-              <p>Click to read.</p>
-            </a>
-          </article>
+          <a href="${link}" class="square">
+            <img src="${image}" alt="${name}">
+            <p>${name}</p>
+          </a>
         `;
 
-        articleDiv.innerHTML = article;
-        container.appendChild(articleDiv);
+        container.innerHTML += article; // Add the article to the container
       });
     } else {
       console.error("No data found in the Google Sheet.");
@@ -104,19 +98,17 @@ async function populateVisualizations() {
       // Dynamically create visualization cards
       rows.forEach(row => {
         const [name, link, image] = row; // Get name, link, and image from the row
-
-        // Create visualization element
-        const vizDiv = document.createElement("div");
-        vizDiv.className = "w3-third";
+ 
 
         const viz = `
-          <a href="${link}">
-            <img class="viz" alt="${name}" src="${image}" />
+          <a href="${link}" class="square">
+            <img  src="${image}" alt="${name}" />
+		<p>${name}</p>
           </a>
         `;
+ 
 
-        vizDiv.innerHTML = viz;
-        container.appendChild(vizDiv);
+        container.innerHTML += viz; // Add the article to the container
       });
     } else {
       console.error("No data found in the Google Sheet.");
@@ -270,7 +262,7 @@ populateVisualizations();
  
 
 
-<section id="portfolio" style="background-color: #f9f9f9;">
+<section id="portfolio">
   <a href="#portfolio" style="text-decoration:none;">
     <h1 style="color:#0074D9;">Portfolio</h1>
   </a>
@@ -279,7 +271,7 @@ populateVisualizations();
     "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
   </blockquote>
 
-<div id="tableau_viz_container" class="w3-row-padding">
+<div id="tableau_viz_container" class="tiles_container_div">
   <!-- Tableau visualizations will be dynamically added here -->
 </div>
 
@@ -288,8 +280,16 @@ populateVisualizations();
 
 
 <section id="blog">
-<div id="blog_div" class="w3-row-padding">
-  <!-- Articles will be dynamically added here -->
+  <a href="#blog" style="text-decoration:none;">
+    <h1 style="color:#0074D9;">Blog</h1>
+  </a>
+
+  <blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;">
+    "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
+  </blockquote>
+
+<div id="blog_div" class="tiles_container_div">
+  <!-- JavaScript will populate the divs here -->
 </div>
 </section>
 
