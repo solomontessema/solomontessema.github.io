@@ -35,10 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
 const spreadsheetId = "1uC34hI5AT2Uxrp5rVmEpsc07-4aRrKnRaMcjpiUVZJw";
 const apiKey = "AIzaSyCAY4rjXddC2nK1TNbu5SEQawCYLty9k04";
 const range = "blog_list!A1:C"; // Updated range to include the Image column
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
 const tableauRange = "viz_list!A1:C"; // Renamed variable to avoid conflict
 const tableauUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${tableauRange}?key=${apiKey}`;
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
- 
+
+const videoRange = "video_list!A1:C"; // Renamed variable to avoid conflict
+const videoUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${videoRange}?key=${apiKey}`;
 
 async function populateArticles() {
   try {
@@ -122,6 +125,50 @@ async function populateVisualizations() {
 populateVisualizations();
 
 
+async function populateVideos() {
+  try {
+    // Fetch data from the Google Sheet
+    const response = await fetch(videoUrl);
+    const data = await response.json();
+
+    // Get the container by ID
+    const container = document.getElementById("video_container");
+
+    // Check if data exists
+    if (data.values && data.values.length > 1) {
+      // Remove header row (assumes the first row is a header)
+      const rows = data.values.slice(1);
+
+      rows.forEach(row => {
+        const [name, link, image] = row; // Get name, link, and image from the row
+ 
+
+        const video = `
+          <a href="${link}" class="square">
+            <img  src="${image}" alt="${name}" />
+		<p>${name}</p>
+          </a>
+        `;
+ 
+
+        container.innerHTML += video; // Add the article to the container
+      });
+    } else {
+      console.error("No data found in the Google Sheet.");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+// Call the function
+populateVideos();
+
+
+
+
+
+
 </script>
 
 
@@ -136,6 +183,7 @@ populateVisualizations();
     <a href="#resume">Resume</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#blog">Blog</a>
+    <a href="#video">Videos</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -283,15 +331,26 @@ populateVisualizations();
   <a href="#blog" style="text-decoration:none;">
     <h1 style="color:#0074D9;">Blog</h1>
   </a>
-
-  <blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;">
-    "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
-  </blockquote>
-
+<p background-color:#e0f7fa; width:100%;padding:20px;">This collection of blogs on data science, data analytics, and mathematics dives into fascinating concepts, practical applications, and insights from my experiences. Each post is crafted to simplify complex ideas and spark curiosity, offering something valuable for both learners and enthusiasts alike.
+</p>
 <div id="blog_div" class="tiles_container_div">
   <!-- JavaScript will populate the divs here -->
 </div>
 </section>
+
+
+<section id="video">
+  <a href="#video" style="text-decoration:none;">
+    <h1 style="color:#0074D9;">Videos</h1>
+  </a>
+  <p background-color:#e0f7fa; width:100%;padding:20px;">
+    Join me on a journey to explore the fascinating world of data science, data analytics, and mathematics. Whether you’re just starting out or looking to deepen your understanding, I’ve put together videos that aim to make complex topics approachable and engaging. I hope these explanations and examples help spark your curiosity and support your learning. Take a look and see if there’s something that resonates with you!
+  </p>
+<div id="video_container" class="tiles_container_div">
+  <!-- JavaScript will populate the divs here -->
+</div>
+</section>
+
 
 
 <section id="contact">
