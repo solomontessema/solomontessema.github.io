@@ -40,7 +40,7 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/valu
 const tableauRange = "viz_list!A1:C"; // Renamed variable to avoid conflict
 const tableauUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${tableauRange}?key=${apiKey}`;
 
-const videoRange = "video_list!A1:C"; // Renamed variable to avoid conflict
+const videoRange = "video_list!A1:D"; // Renamed variable to avoid conflict
 const videoUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${videoRange}?key=${apiKey}`;
 
 async function populateArticles() {
@@ -140,17 +140,16 @@ async function populateVideos() {
       const rows = data.values.slice(1);
 
       rows.forEach(row => {
-        const [name, link, image] = row; // Get name, link, and image from the row
+        const [name,video_id, link, image] = row; // Get name, link, and image from the row
  
-
+ 
         const video = `
           <a href="${link}" class="square">
-            <img  src="${image}" alt="${name}" />
-		<p>${name}</p>
+           <img  src="${image}" alt="${name}" /> 
+		      <p>${name}</p>
           </a>
         `;
- 
-
+  
         container.innerHTML += video; // Add the article to the container
       });
     } else {
@@ -165,10 +164,6 @@ async function populateVideos() {
 populateVideos();
 
 
-
-
-
-
 </script>
 
 
@@ -181,9 +176,9 @@ populateVideos();
   <div class="menu-links">
     <a href="#home">Home</a>
     <a href="#resume">Resume</a>
-    <a href="#portfolio">Portfolio</a>
     <a href="#blog">Blog</a>
     <a href="#video">Videos</a>
+    <a href="#visualization">Visualizations</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -308,25 +303,7 @@ populateVideos();
     </div>
 </section>
  
-
-
-<section id="portfolio">
-  <a href="#portfolio" style="text-decoration:none;">
-    <h1 style="color:#0074D9;">Portfolio</h1>
-  </a>
-
-  <blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;">
-    "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
-  </blockquote>
-
-<div id="tableau_viz_container" class="tiles_container_div">
-  <!-- Tableau visualizations will be dynamically added here -->
-</div>
-
-</section>
-
-
-
+ 
 <section id="blog">
   <a href="#blog" style="text-decoration:none;">
     <h1 style="color:#0074D9;">Blog</h1>
@@ -337,6 +314,7 @@ populateVideos();
   <!-- JavaScript will populate the divs here -->
 </div>
 </section>
+
 
 
 <section id="video">
@@ -352,6 +330,20 @@ populateVideos();
 </section>
 
 
+<section id="visualization">
+  <a href="#visualization" style="text-decoration:none;">
+    <h1 style="color:#0074D9;">Portfolio</h1>
+  </a>
+
+  <blockquote style="font-style: italic; color: #555;background-color:#e0f7fa; margin: 20px auto; text-align: center; width:100%;padding:20px;">
+    "Data science is the art of transforming chaos into clarity. Artificial intelligence is the architect of possibilities yet to be imagined, and visualization is the window through which we marvel at these phenomena."
+  </blockquote>
+
+<div id="tableau_viz_container" class="tiles_container_div">
+  <!-- Tableau visualizations will be dynamically added here -->
+</div>
+
+</section>
 
 <section id="contact">
 <div class="w3-row-padding" style="display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center; background-color: #e0f7fa; padding: 20px;"> 
