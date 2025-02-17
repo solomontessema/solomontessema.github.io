@@ -1,0 +1,221 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  background-color: #f8f9fa;
+  line-height: 1.6;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(27, 117, 187, 0.8);
+  border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+  padding: 10px 0;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 15px; /* Align the hamburger icon to the left */
+}
+
+.menu-links {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.menu-links a:hover {
+  background-color: rgba(27, 117, 187);
+  border: 1px solid #f29e3b;
+}
+ 
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start; /* Align the links to the left */
+    width: 50%; /* Cover half of the screen */
+    padding-left: 15px; /* Add some padding to the left */
+  }
+
+  .menu-links.show {
+    display: flex;
+  }
+
+  .menu-links a {
+    display: block;
+    margin: 10px 0;
+    text-align: left; /* Align the text to the left */
+  }
+}
+
+  .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+@media (min-width: 780px) {
+  .container {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 780px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+
+section {
+  margin-top: 60px;  
+  padding:10px;
+  background-color: white;
+  position: relative;
+  scroll-margin-top: 70px; /* Adjust based on your nav bar height */
+}
+
+ 
+.tiles_container_div {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px;"
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for 4 tiles per row */
+  background-color: white; /* Light background for the grid container */
+  justify-content: center; /* Centers the grid */
+}
+ 
+.square {
+  width: 100%; /* Automatically adjusts based on grid column width */
+  height: auto; /* Let the height adjust dynamically */
+  max-width: 280px; /* Prevent tiles from becoming too large */
+  background-color: white;
+  border-radius: 5px;
+border-color: #d0d0d0;
+border-width: 1px;
+border-style: solid;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none; /* Removes default link styles */
+  color: inherit; /* Inherits text color */
+  margin:10px;
+  background-color:#f9f9f9;
+}
+
+ 
+.square img {
+  width: 100%; /* Fits the image to the width of the tile */
+  height: 50%; /* Restricts the image to the top half of the tile */
+  object-fit: cover; /* Crops the image to fit without distortion */
+}
+
+ 
+.square p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px; /* Adjusted font size to fit smaller tiles */
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  height: 50%; /* Ensures the caption takes the bottom half of the tile */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+}
+
+ 
+.square:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+  transform: translateY(-5px); /* Slight lift on hover */
+  transition: all 0.3s ease-in-out;
+}
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: white;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      color: #0074D9;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+ 
+ 
+
+i {
+color: #f29e3b; 
+font-size: 1.4rem; 
+margin-right: 10px;
+}
+
+.profile-picture {
+  width: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+  .profile-picture {
+    display: none;
+  }
+}
+
+        #network {
+            width: 100%;  /* Full width */
+            height: 600px; /* Fixed height */
+            border: 1px solid lightgray;
+            border-radius: 8px;
+        }
+
+#GetInTouch {
+align-items: center; 
+text-align: center; 
+background-color: #f7f7f7; 
+padding: 40px; 
+margin-top: 40px;
+          }
+
+iframe {
+     height: 800px; 
+    }
+
+
+  @media (max-width: 768px) {
+    #GetInTouch {
+padding:0px; 
+          }
+    iframe {
+      height: 800px; 
+    }
+  }
