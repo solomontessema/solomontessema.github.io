@@ -168,30 +168,56 @@ async function populateVideos() {
 populateVideos();
 
 
-document.getElementById("contactForm").addEventListener("submit", async function(event) {
-  event.preventDefault();
+       // Ensure DOM is fully loaded before attaching the event listener
+       document.addEventListener('DOMContentLoaded', function() {
+          // Contact Form Submission
+          var contactForm = document.getElementById("contactForm");
+          var formContainer = document.getElementById("formContainer");
+          var submittingMessage = document.getElementById("submittingMessage");
+          var responseMessage = document.getElementById("responseMessage");
+          var formInstruction = document.getElementById("formInstruction");
+          var successInstruction = document.getElementById("successInstruction");
+      
+          if (contactForm) {
+            contactForm.addEventListener("submit", async function(event) {
+              event.preventDefault();
+              
+              // Show submitting message and hide form
+              formContainer.style.display = "none";
+              formInstruction.style.display = "none";
+              submittingMessage.style.display = "block";
+              successInstruction.style.display = "block";
 
-  const formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    comment: document.getElementById("comment").value
-  };
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxqQJGhXuvMZICkePuAPvLNgN-4vzqFQLUoje9NedwSOOuE9k3SZsVVJYf9dP_fjo7gow/exec", {
-      method: "POST",
-      mode: "no-cors",  // Bypass CORS issues
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    });
-
-    document.getElementById("responseMessage").style.display = "block";
-    document.getElementById("contactForm").reset();
-  } catch (error) {
-    console.error("Error submitting form:", error);
-  }
-});
+              const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                comment: document.getElementById("comment").value
+              };
+      
+              try {
+                const response = await fetch("https://script.google.com/macros/s/AKfycbxqQJGhXuvMZICkePuAPvLNgN-4vzqFQLUoje9NedwSOOuE9k3SZsVVJYf9dP_fjo7gow/exec", {
+                  method: "POST",
+                  mode: "no-cors",  // Bypass CORS issues
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(formData)
+                });
+      
+                // Hide submitting message and show success message
+                submittingMessage.style.display = "none";
+                responseMessage.style.display = "block";
+                responseMessage.innerText = "Your message has been successfully submitted. I will reach you as soon as possible. Thank you!";
+                successInstruction.style.display = "none";
+                contactForm.reset();
+              } catch (error) {
+                console.error("Error submitting form:", error);
+                successInstruction.innerText = "An error occurred while submitting your message. Please try again later.";
+              }
+            });
+          } else {
+            console.error("Contact form not found");
+          }
+        });
 
 
 </script>
@@ -377,40 +403,46 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 <section id="contact">
 
+  <!-- Contact form -->
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card shadow-lg p-4">
-        <h1 class="text-center"  style="color:#0074D9;">Get in Touch</h1>
-        <p class="text-center text-muted">Fill out the form below, and I'll get back to you as soon as possible.</p>
+        <h1 class="text-center" style="color:#0074D9;">Get in Touch</h1>
+        <p id="formInstruction" class="text-center text-muted">Fill out the form below, and I'll get back to you as soon as possible.</p>
+        <p id="successInstruction" class="text-center text-muted" style="display:none;"></p>
         
-        <form id="contactForm">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name*</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">Email*</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="phone" class="form-label">Phone*</label>
-            <input type="tel" id="phone" name="phone" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="comment" class="form-label">Comments (Optional)</label>
-            <textarea id="comment" name="comment" class="form-control" rows="4"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary w-100"  style="background-color:#0074D9;">Submit</button>
-        </form>
-
-        <p id="responseMessage" class="text-success text-center mt-3" style="display:none;">Message sent successfully!</p>
+        <div id="formContainer">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name*</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="email" class="form-label">Email*</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone*</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="comment" class="form-label">Comments (Optional)</label>
+              <textarea id="comment" name="comment" class="form-control" rows="4"></textarea>
+            </div>
+  
+            <button type="submit" class="btn btn-primary w-100" style="background-color:#0074D9;">Submit</button>
+          </form>
+        </div>
+  
+        <p id="responseMessage" class="text-success text-center mt-3" style="display:none;"></p>
+        <p id="submittingMessage" class="text-info text-center mt-3" style="display:none;">Your message is being submitted. Please wait...</p>
       </div>
     </div>
   </div>
+
 </section>
 
 <footer>
