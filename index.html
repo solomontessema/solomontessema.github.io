@@ -168,6 +168,32 @@ async function populateVideos() {
 populateVideos();
 
 
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    comment: document.getElementById("comment").value
+  };
+
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxqQJGhXuvMZICkePuAPvLNgN-4vzqFQLUoje9NedwSOOuE9k3SZsVVJYf9dP_fjo7gow/exec", {
+      method: "POST",
+      mode: "no-cors",  // Bypass CORS issues
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+
+    document.getElementById("responseMessage").style.display = "block";
+    document.getElementById("contactForm").reset();
+  } catch (error) {
+    console.error("Error submitting form:", error);
+  }
+});
+
+
 </script>
 
 
@@ -350,58 +376,78 @@ populateVideos();
 </section>
 
 <section id="contact">
-<div class="w3-row-padding" style="display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center; background-color: #e0f7fa; padding: 20px;"> 
-  <a href="mailto:solomon.tessema@outlook.com" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
-  <a href="https://www.linkedin.com/in/solomon-tessema" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fab fa-linkedin" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
-  <a href="https://github.com/solomontessema" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fab fa-github" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
-  <a href="https://www.kaggle.com/solomonTTessema" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fab fa-kaggle" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
-  <a href="https://public.tableau.com/profile/solomontessema/vizzes" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fas fa-chart-bar" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
-  <a href="https://ai.solomontessema.com" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="w3-quarter" style="flex: 1; text-align: center;">
-      <i class="fab fa-blogger" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-    </div>
-  </a>
- 
 
-</div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-4">
+        <h1 class="text-center"  style="color:#0074D9;">Get in Touch</h1>
+        <p class="text-center text-muted">Fill out the form below, and I'll get back to you as soon as possible.</p>
+        
+        <form id="contactForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name*</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
 
+          <div class="mb-3">
+            <label for="email" class="form-label">Email*</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
 
-<div id = "GetInTouch">
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLSc9kIrWxSBDaDVaf7oiY4fCBndWKy-surA07EcWN_eZepvxdQ/viewform?embedded=true" 
-    style="width: 100%; height: 1000px; border: none; margin: 0;">
-    Loading…
-  </iframe>
-</div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone*</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comments (Optional)</label>
+            <textarea id="comment" name="comment" class="form-control" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100"  style="background-color:#0074D9;">Submit</button>
+        </form>
+
+        <p id="responseMessage" class="text-success text-center mt-3" style="display:none;">Message sent successfully!</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-</div>
-
-
-
 <footer>
+  <div class="w3-row-padding" style="display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center; background-color: #e0f7fa; padding: 20px;"> 
+    <a href="mailto:solomon.tessema@outlook.com" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/solomon-tessema" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fab fa-linkedin" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+    <a href="https://github.com/solomontessema" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fab fa-github" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+    <a href="https://www.kaggle.com/solomonTTessema" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fab fa-kaggle" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+    <a href="https://public.tableau.com/profile/solomontessema/vizzes" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fas fa-chart-bar" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+    <a href="https://ai.solomontessema.com" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="w3-quarter" style="flex: 1; text-align: center;">
+        <i class="fab fa-blogger" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+      </div>
+    </a>
+   
   
+  </div>
   <p>&copy; 2024 Solomon Tessema</p>
 </footer>
 
