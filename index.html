@@ -1,39 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
- 
-  <meta charset="UTF-8" />
+
+  <meta charset="UTF-M-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Solomon Tessema — AI Developer</title>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
 
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Tiny style just to set the font and smooth scroll (no custom classes) -->
   <style>
-    html, body { font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
+    html, body { 
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      scroll-behavior: smooth; 
+    }
+    /* Custom CSS Variables for easier color management and a soft teal accent */
+    :root {
+      --bs-primary: #20c997; /* A vibrant teal/cyan */
+      --bs-primary-rgb: 32, 201, 151;
+      --bs-secondary: #6c757d;
+      --bs-light: #f8f9fa;
+      --bs-dark: #343a40;
+      --bs-body-bg: #f0f2f5; /* A very light grey background */
+      --bs-heading-color: #343a40;
+    }
+
+    .bg-gradient-hero {
+      /* Softer, more diffused background gradient */
+      background: radial-gradient(circle at 15% 50%, rgba(32, 201, 151, 0.08) 0%, transparent 40%), 
+                  radial-gradient(circle at 85% 50%, rgba(32, 201, 151, 0.08) 0%, transparent 40%),
+                  linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+    }
+
+    /* Navbar transition */
+    #topNav {
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    #topNav.scrolled {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    }
+    #topNav.scrolled .nav-link {
+      color: var(--bs-dark) !important;
+    }
+    #topNav.scrolled .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+    
+    /* Blog tile images */
+    .blog-img-fixed {
+      height: 180px; /* Slightly taller for better presentation */
+      object-fit: cover;
+    }
+
+    /* Override the default warning button style for the custom primary color */
+    .btn-warning {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: #1aa67e; /* Slightly darker teal on hover */
+        --bs-btn-hover-border-color: #1aa67e;
+        --bs-btn-focus-shadow-rgb: 49,132,253;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: #1aa67e;
+        --bs-btn-active-border-color: #1aa67e;
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: var(--bs-primary);
+        --bs-btn-disabled-border-color: var(--bs-primary);
+    }
+    .btn-outline-warning {
+        --bs-btn-color: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: var(--bs-primary);
+        --bs-btn-hover-border-color: var(--bs-primary);
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: var(--bs-primary);
+        --bs-btn-active-border-color: var(--bs-primary);
+        --bs-btn-disabled-color: var(--bs-primary);
+        --bs-btn-disabled-bg: transparent;
+        --bs-gradient: none;
+    }
+    /* Adjust primary badges to match the new primary color */
+    .badge.bg-primary {
+        background-color: var(--bs-primary) !important;
+    }
+    .text-primary {
+        color: var(--bs-primary) !important;
+    }
+    .btn-primary {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: #1aa67e;
+        --bs-btn-hover-border-color: #1aa67e;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: #1aa67e;
+        --bs-btn-active-border-color: #1aa67e;
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: var(--bs-primary);
+        --bs-btn-disabled-border-color: var(--bs-primary);
+    }
+    .btn-outline-primary {
+        --bs-btn-color: var(--bs-primary);
+        --bs-btn-border-color: var(--bs-primary);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: var(--bs-primary);
+        --bs-btn-hover-border-color: var(--bs-primary);
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: var(--bs-primary);
+        --bs-btn-active-border-color: var(--bs-primary);
+        --bs-btn-disabled-color: var(--bs-primary);
+        --bs-btn-disabled-bg: transparent;
+        --bs-gradient: none;
+    }
+    .bg-primary-subtle { /* Custom subtle background for info boxes */
+        background-color: rgba(32, 201, 151, 0.1) !important; /* 10% opacity of primary color */
+    }
+    .text-primary-emphasis {
+        color: var(--bs-primary) !important;
+    }
+    .form-control:focus {
+        border-color: rgba(32, 201, 151, 0.5); /* Primary color with transparency */
+        box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+    }
+    /* Profile picture styling - Increased size */
+    .profile-picture {
+      width: 250px; /* Increased width */
+      height: 250px; /* Increased height */
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bs-primary); /* A nice border with the accent color */
+      box-shadow: 0 0 0 5px rgba(32, 201, 151, 0.1); /* Subtle outer glow */
+    }
+    /* Adjust spacing for mobile for the profile picture */
+    @media (max-width: 767.98px) {
+      .hero-card-content {
+        text-align: center;
+      }
+      .hero-card-content .d-flex {
+        justify-content: center !important;
+      }
+      .profile-picture {
+        margin-bottom: 1.5rem !important; /* Add some space below on small screens */
+      }
+    }
   </style>
 </head>
-<body class="bg-light">
+<body class="bg-body-bg" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
 
-  <!-- NAVBAR (transparent over hero, darkens on scroll) -->
   <nav id="topNav" class="navbar navbar-expand-lg fixed-top bg-transparent">
     <div class="container">
-
+      <a class="navbar-brand fw-bold text-dark" href="#home">Solomon Tessema</a>
       <button class="navbar-toggler border-0 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto align-items-lg-center fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#resume">Resume</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contact</a></li>
           <li class="nav-item ms-lg-3">
             <a class="btn btn-warning fw-semibold px-3" href="#contact"><i class="fa-regular fa-paper-plane me-2"></i>Work with me</a>
           </li>
@@ -42,65 +174,54 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header id="home" class="py-5" style="background: radial-gradient(120% 120% at 10% 10%, #e3f2ff 0%, #fff 45%) , linear-gradient(135deg, #fef6e7 0%, #ffffff 35%);">
+  <header id="home" class="min-vh-100 d-flex align-items-center py-5 bg-gradient-hero text-dark">
     <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-          <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm">
-            <span class="badge rounded-pill text-bg-primary mb-3">AI • Agents • RAG</span>
-            <h1 class="display-5 fw-semibold mb-3 text-primary">Hi, I’m Solomon — AI Developer</h1>
-            <p class="lead mb-3">
-              I build intelligent, production-ready systems: modular tool-using agents, RAG pipelines, and scalable data workflows.
-            </p>
-            <p class="mb-4">
-              LangChain • LangGraph • Python • PySpark • OpenAI • Gemini • Pinecone • Chroma • SQL • TensorFlow • scikit-learn • Power BI • Tableau
-            </p>
-            <div class="d-flex gap-2">
-              <a href="#resume" class="btn btn-primary btn-lg"><i class="fa-solid fa-id-badge me-2"></i>See Resume</a>
-              <a href="#blog" class="btn btn-outline-primary btn-lg"><i class="fa-solid fa-book me-2"></i>Read Blog</a>
+      <div class="row justify-content-center">
+        <div class="col-lg-10"> <div class="p-4 p-md-5 bg-white rounded-4 shadow-lg d-flex flex-column flex-md-row align-items-center">
+            <div class="flex-shrink-0 mb-4 mb-md-0 me-md-4 text-center">
+              <img src="image/profile_picture.png" alt="Solomon Tessema" class="profile-picture">
             </div>
-          </div>
-        </div>
-        <div class="col-lg-5 text-center">
-          <div class="ratio ratio-1x1 rounded-4 shadow-sm overflow-hidden">
-            <img src="image/profile_picture.png" alt="Solomon Tessema" class="w-100 h-100 object-fit-cover">
-          </div>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-            <span class="badge rounded-pill text-bg-light border">Agentic AI</span>
-            <span class="badge rounded-pill text-bg-light border">RAG</span>
-            <span class="badge rounded-pill text-bg-light border">LLM Apps</span>
-            <span class="badge rounded-pill text-bg-light border">Data Pipelines</span>
+            <div class="flex-grow-1 text-center text-md-start hero-card-content">
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold mb-3 fs-6">AI • Agents • RAG</span>
+              <h1 class="display-4 fw-bold mb-3 text-dark">Hi, I’m Solomon, an AI Developer</h1>
+              <p class="lead mb-3 text-muted">
+                I build intelligent, production-ready systems: modular tool-using agents, RAG pipelines, and scalable data workflows.
+              </p>
+              <p class="mb-4 text-secondary small">
+                LangChain • LangGraph • Python • PySpark • OpenAI • Gemini • Pinecone • Chroma • SQL • TensorFlow • scikit-learn • Power BI • Tableau
+              </p>
+              <div class="d-flex gap-2 justify-content-center justify-content-md-start">
+                <a href="#resume" class="btn btn-warning btn-lg"><i class="fa-solid fa-id-badge me-2"></i>See Resume</a>
+                <a href="#blog" class="btn btn-outline-warning btn-lg"><i class="fa-solid fa-book me-2"></i>Blog</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- RESUME -->
   <section id="resume" class="py-5">
     <div class="container">
-      <div class="d-flex align-items-center mb-3">
-        <h2 class="fw-semibold mb-0">Resume</h2>
-        <div class="ms-3 flex-grow-1 border-bottom"></div>
+      <div class="d-flex align-items-center mb-4">
+        <h2 class="fw-bold mb-0 text-dark">Resume</h2>
+        <div class="ms-3 flex-grow-1 border-bottom border-secondary border-opacity-25"></div>
       </div>
 
       <div class="row g-4">
-        <!-- EXPERIENCE (Accordion timeline style) -->
         <div class="col-lg-7">
           <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-briefcase me-2"></i>Experience</h3>
+            <h3 class="h5 fw-bold text-primary mb-3"><i class="fa-solid fa-briefcase me-2"></i>Experience</h3>
 
-            <div class="accordion" id="expAccordion">
-              <!-- IONNOVA -->
-              <div class="accordion-item">
+            <div class="accordion accordion-flush" id="expAccordion">
+              <div class="accordion-item border-0 mb-2">
                 <h2 class="accordion-header" id="exp1">
-                  <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp1c" aria-expanded="true" aria-controls="exp1c">
-                    Agentic AI & Generative AI Developer — IONNOVA LLC <span class="ms-2 text-muted">(Jan 2025 – Present)</span>
+                  <button class="accordion-button fw-semibold shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#exp1c" aria-expanded="true" aria-controls="exp1c">
+                    Agentic AI & Generative AI Developer — IONNOVA LLC <span class="ms-2 text-muted small">(Jan 2025 – Present)</span>
                   </button>
                 </h2>
                 <div id="exp1c" class="accordion-collapse collapse show" aria-labelledby="exp1" data-bs-parent="#expAccordion">
-                  <div class="accordion-body">
+                  <div class="accordion-body text-secondary">
                     <ul class="mb-0">
                       <li>Architect modular AI agents using LangChain, LangGraph, and custom Python tooling.</li>
                       <li>Build scalable LLM pipelines integrating OpenAI, Gemini, Pinecone, and Chroma for semantic search and RAG.</li>
@@ -111,15 +232,14 @@
                 </div>
               </div>
 
-              <!-- Metrocare -->
-              <div class="accordion-item">
+              <div class="accordion-item border-0 mb-2">
                 <h2 class="accordion-header" id="exp2">
-                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp2c" aria-expanded="false" aria-controls="exp2c">
-                    Lead Software & AI Developer — Metrocare Services <span class="ms-2 text-muted">(Sep 2021 – Dec 2024)</span>
+                  <button class="accordion-button collapsed fw-semibold shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#exp2c" aria-expanded="false" aria-controls="exp2c">
+                    Lead Software & AI Developer — Metrocare Services <span class="ms-2 text-muted small">(Sep 2021 – Dec 2024)</span>
                   </button>
                 </h2>
                 <div id="exp2c" class="accordion-collapse collapse" aria-labelledby="exp2" data-bs-parent="#expAccordion">
-                  <div class="accordion-body">
+                  <div class="accordion-body text-secondary">
                     <ul class="mb-0">
                       <li>Deployed LLM applications and agentic systems to automate clinical workflows.</li>
                       <li>Designed prompt engineering and RAG pipelines for decision support.</li>
@@ -129,15 +249,14 @@
                 </div>
               </div>
 
-              <!-- Caliber -->
-              <div class="accordion-item">
+              <div class="accordion-item border-0 mb-2">
                 <h2 class="accordion-header" id="exp3">
-                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp3c" aria-expanded="false" aria-controls="exp3c">
-                    Senior Software Developer — Caliber Home Loans <span class="ms-2 text-muted">(Mar 2021 – Sep 2021)</span>
+                  <button class="accordion-button collapsed fw-semibold shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#exp3c" aria-expanded="false" aria-controls="exp3c">
+                    Senior Software Developer — Caliber Home Loans <span class="ms-2 text-muted small">(Mar 2021 – Sep 2021)</span>
                   </button>
                 </h2>
                 <div id="exp3c" class="accordion-collapse collapse" aria-labelledby="exp3" data-bs-parent="#expAccordion">
-                  <div class="accordion-body">
+                  <div class="accordion-body text-secondary">
                     <ul class="mb-0">
                       <li>Developed NLP solutions for sentiment and service quality analysis.</li>
                       <li>Built predictive mortgage risk models using scikit-learn and TensorFlow.</li>
@@ -146,15 +265,14 @@
                 </div>
               </div>
 
-              <!-- Lennox -->
-              <div class="accordion-item">
+              <div class="accordion-item border-0 mb-2">
                 <h2 class="accordion-header" id="exp4">
-                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp4c" aria-expanded="false" aria-controls="exp4c">
-                    Software Developer — Lennox International <span class="ms-2 text-muted">(Jun 2019 – Aug 2020)</span>
+                  <button class="accordion-button collapsed fw-semibold shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#exp4c" aria-expanded="false" aria-controls="exp4c">
+                    Software Developer — Lennox International <span class="ms-2 text-muted small">(Jun 2019 – Aug 2020)</span>
                   </button>
                 </h2>
                 <div id="exp4c" class="accordion-collapse collapse" aria-labelledby="exp4" data-bs-parent="#expAccordion">
-                  <div class="accordion-body">
+                  <div class="accordion-body text-secondary">
                     <ul class="mb-0">
                       <li>Engineered rule-based automation for ETO workflows (.NET, SQL Server).</li>
                       <li>Built modular components for product configuration and business rules.</li>
@@ -163,15 +281,14 @@
                 </div>
               </div>
 
-              <!-- DMS -->
-              <div class="accordion-item">
+              <div class="accordion-item border-0">
                 <h2 class="accordion-header" id="exp5">
-                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp5c" aria-expanded="false" aria-controls="exp5c">
-                    Data Engineer — Digital Matrix Systems <span class="ms-2 text-muted">(Jan 2018 – Dec 2018)</span>
+                  <button class="accordion-button collapsed fw-semibold shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#exp5c" aria-expanded="false" aria-controls="exp5c">
+                    Data Engineer — Digital Matrix Systems <span class="ms-2 text-muted small">(Jan 2018 – Dec 2018)</span>
                   </button>
                 </h2>
                 <div id="exp5c" class="accordion-collapse collapse" aria-labelledby="exp5" data-bs-parent="#expAccordion">
-                  <div class="accordion-body">
+                  <div class="accordion-body text-secondary">
                     <ul class="mb-0">
                       <li>Built credit risk models and statistical analyses.</li>
                       <li>Designed ETL workflows and SQL Server data warehouses.</li>
@@ -179,15 +296,13 @@
                   </div>
                 </div>
               </div>
-            </div> <!-- /accordion -->
-          </div>
+            </div> </div>
         </div>
 
-        <!-- EDUCATION + SKILLS + CERTS -->
         <div class="col-lg-5">
           <div class="p-4 bg-white rounded-4 shadow-sm mb-4">
-            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-graduation-cap me-2"></i>Education</h3>
-            <ul class="mb-0">
+            <h3 class="h5 fw-bold text-primary mb-3"><i class="fa-solid fa-graduation-cap me-2"></i>Education</h3>
+            <ul class="mb-0 text-secondary">
               <li class="mb-2"><strong>MS, Mathematics</strong> — Indiana State University (Aug 2022)</li>
               <li class="mb-2"><strong>BA, Mathematics</strong> — Southern New Hampshire University (Aug 2020)</li>
               <li><strong>AS, Software Engineering</strong> — Dallas College (Dec 2017)</li>
@@ -195,68 +310,64 @@
           </div>
 
           <div class="p-4 bg-white rounded-4 shadow-sm mb-4">
-            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-screwdriver-wrench me-2"></i>Skills</h3>
+            <h3 class="h5 fw-bold text-primary mb-3"><i class="fa-solid fa-screwdriver-wrench me-2"></i>Skills</h3>
             <div class="d-flex flex-wrap gap-2">
-              <span class="badge rounded-pill text-bg-light border">LangChain</span>
-              <span class="badge rounded-pill text-bg-light border">LangGraph</span>
-              <span class="badge rounded-pill text-bg-light border">RAG</span>
-              <span class="badge rounded-pill text-bg-light border">OpenAI</span>
-              <span class="badge rounded-pill text-bg-light border">Gemini</span>
-              <span class="badge rounded-pill text-bg-light border">Pinecone</span>
-              <span class="badge rounded-pill text-bg-light border">Chroma</span>
-              <span class="badge rounded-pill text-bg-light border">Python</span>
-              <span class="badge rounded-pill text-bg-light border">PySpark</span>
-              <span class="badge rounded-pill text-bg-light border">SQL</span>
-              <span class="badge rounded-pill text-bg-light border">TensorFlow</span>
-              <span class="badge rounded-pill text-bg-light border">scikit-learn</span>
-              <span class="badge rounded-pill text-bg-light border">Power BI</span>
-              <span class="badge rounded-pill text-bg-light border">Tableau</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">LangChain</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">LangGraph</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">RAG</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">OpenAI</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Gemini</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Pinecone</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Chroma</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Python</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">PySpark</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">SQL</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">TensorFlow</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">scikit-learn</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Power BI</span>
+              <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">Tableau</span>
             </div>
           </div>
 
           <div class="p-4 bg-white rounded-4 shadow-sm">
             <div class="d-flex align-items-center justify-content-between">
-              <h3 class="h5 fw-semibold text-primary mb-0"><i class="fa-solid fa-certificate me-2"></i>Certifications</h3>
-              <a href="pdf/Resume.pdf" class="btn btn-sm btn-warning fw-semibold"><i class="fa-solid fa-download me-1"></i>Download PDF</a>
+              <h3 class="h5 fw-bold text-primary mb-0"><i class="fa-solid fa-certificate me-2"></i>Certifications</h3>
+              <a href="pdf/Resume.pdf" class="btn btn-sm btn-outline-secondary fw-semibold"><i class="fa-solid fa-download me-1"></i>Download PDF</a>
             </div>
-            <ul class="mb-0 mt-3">
+            <ul class="mb-0 mt-3 text-secondary">
               <li>MCSD: App Builder (2021)</li>
               <li>MCSE: Data Management & Analytics (2020)</li>
               <li>Tableau Desktop (2020)</li>
             </ul>
           </div>
         </div>
-      </div> <!-- /row -->
-    </div>
+      </div> </div>
   </section>
 
-  <!-- BLOG -->
-  <section id="blog" class="py-5" style="background: linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);">
+  <section id="blog" class="py-5 bg-light">
     <div class="container">
-      <div class="d-flex align-items-center mb-3">
-        <h2 class="fw-semibold mb-0">Blog</h2>
-        <div class="ms-3 flex-grow-1 border-bottom"></div>
+      <div class="d-flex align-items-center mb-4">
+        <h2 class="fw-bold mb-0 text-dark">Blog</h2>
+        <div class="ms-3 flex-grow-1 border-bottom border-secondary border-opacity-25"></div>
       </div>
 
-      <p class="p-3 p-md-4 bg-white rounded-4 shadow-sm">
+      <p class="p-4 bg-primary-subtle rounded-4 text-primary-emphasis">
         This collection of blogs on data science, analytics, and mathematics breaks down complex ideas into practical insights for learners and practitioners.
       </p>
 
-      <div id="blog_div" class="row g-4">
-        <!-- Populated by Google Sheets below -->
-      </div>
+      <div id="blog_div" class="row g-4 mt-3">
+        </div>
     </div>
   </section>
 
   
-  <!-- CONTACT -->
-  <section id="contact" class="py-5" style="background: linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);">
+  <section id="contact" class="py-5 bg-body-bg">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-7">
           <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4 p-md-5">
-              <h2 class="text-center fw-semibold mb-3">Get in Touch</h2>
+              <h2 class="text-center fw-bold mb-3 text-dark">Get in Touch</h2>
               <p id="formInstruction" class="text-center text-muted">Fill out the form below, and I'll get back to you as soon as possible.</p>
               <p id="successInstruction" class="text-center text-muted d-none"></p>
 
@@ -279,7 +390,7 @@
                     <textarea id="comment" name="comment" class="form-control" rows="4"></textarea>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    <button type="submit" class="btn btn-warning btn-lg w-100">Submit</button>
                   </div>
                 </form>
               </div>
@@ -289,27 +400,26 @@
             </div>
           </div>
 
-          <!-- Socials -->
           <div class="text-center mt-4">
-            <a class="text-body fs-4 me-3" href="mailto:solomon.tessema@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a class="text-body fs-4 me-3" href="https://www.linkedin.com/in/solomon-tessema" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a class="text-body fs-4 me-3" href="https://github.com/solomontessema" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a class="text-body fs-4 me-3" href="https://www.kaggle.com/solomonTTessema" target="_blank" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
-            <a class="text-body fs-4" href="https://public.tableau.com/profile/solomontessema/vizzes" target="_blank" aria-label="Tableau"><i class="fas fa-chart-bar"></i></a>
+            <a class="text-primary fs-3 mx-2" href="mailto:solomon.tessema@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a class="text-primary fs-3 mx-2" href="https://www.linkedin.com/in/solomon-tessema" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a class="text-primary fs-3 mx-2" href="https://github.com/solomontessema" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a class="text-primary fs-3 mx-2" href="https://www.kaggle.com/solomonTTessema" target="_blank" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+            <a class="text-primary fs-3 mx-2" href="https://public.tableau.com/profile/solomontessema/vizzes" target="_blank"aria-label="Tableau"><i class="fas fa-chart-bar"></i></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-4 bg-white border-top">
+  <footer class="py-4 bg-dark text-white">
     <div class="container">
       <p class="text-center text-muted mb-0">&copy; 2025 Solomon Tessema</p>
     </div>
   </footer>
 
-  <!-- DATA (Blog tiles from Google Sheets) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
     const spreadsheetId = "1uC34hI5AT2Uxrp5rVmEpsc07-4aRrKnRaMcjpiUVZJw";
     const apiKey = "AIzaSyCAY4rjXddC2nK1TNbu5SEQawCYLty9k04";
@@ -324,12 +434,12 @@
         if (data.values && data.values.length > 1) {
           data.values.slice(1).forEach(([name, link, image]) => {
             const col = document.createElement("div");
-            col.className = "col-12 col-sm-6 col-lg-4";
+            col.className = "col-12 col-sm-6 col-md-4 col-lg-3"; 
             col.innerHTML = `
-              <a href="${link}" class="card border-0 shadow-sm h-100 text-decoration-none">
-                <img src="${image}" alt="${name}" class="card-img-top" />
-                <div class="card-body">
-                  <p class="fw-semibold text-dark mb-0">${name}</p>
+              <a href="${link}" target="_blank" class="card border-0 shadow-sm h-100 text-decoration-none overflow-hidden rounded-3">
+                <img src="${image}" alt="${name}" class="card-img-top blog-img-fixed" />
+                <div class="card-body d-flex align-items-center">
+                  <p class="fw-semibold text-dark mb-0 small">${name}</p>
                 </div>
               </a>
             `;
@@ -341,7 +451,6 @@
     populateArticles();
   </script>
 
-  <!-- CONTACT FORM (unchanged logic) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var contactForm = document.getElementById("contactForm");
@@ -386,6 +495,18 @@
             successInstruction.innerText = "An error occurred while submitting your message. Please try again later.";
           }
         });
+      }
+    });
+  </script>
+  
+  <script>
+    // Navbar scroll effect for light theme
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('topNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
     });
   </script>
