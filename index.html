@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solomon Tessema — AI Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Tiny style just to set the font and smooth scroll (no custom classes) -->
+  <style>
+    html, body { font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- NAVBAR (transparent over hero, darkens on scroll) -->
+  <nav id="topNav" class="navbar navbar-expand-lg fixed-top bg-transparent">
+    <div class="container">
+      <a class="navbar-brand fw-semibold text-dark" href="#home">Solomon Tessema</a>
+
+      <button class="navbar-toggler border-0 shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#video">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-warning fw-semibold px-3" href="#contact"><i class="fa-regular fa-paper-plane me-2"></i>Work with me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="py-5" style="background: radial-gradient(120% 120% at 10% 10%, #e3f2ff 0%, #fff 45%) , linear-gradient(135deg, #fef6e7 0%, #ffffff 35%);">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm">
+            <span class="badge rounded-pill text-bg-primary mb-3">AI • Agents • RAG</span>
+            <h1 class="display-5 fw-semibold mb-3 text-primary">Hi, I’m Solomon — AI Developer</h1>
+            <p class="lead mb-3">
+              I build intelligent, production-ready systems: modular tool-using agents, RAG pipelines, and scalable data workflows.
+            </p>
+            <p class="mb-4">
+              LangChain • LangGraph • Python • PySpark • OpenAI • Gemini • Pinecone • Chroma • SQL • TensorFlow • scikit-learn • Power BI • Tableau
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#resume" class="btn btn-primary btn-lg"><i class="fa-solid fa-id-badge me-2"></i>See Resume</a>
+              <a href="#blog" class="btn btn-outline-primary btn-lg"><i class="fa-solid fa-book me-2"></i>Read Blog</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="ratio ratio-1x1 rounded-4 shadow-sm overflow-hidden">
+            <img src="image/profile_picture.png" alt="Solomon Tessema" class="w-100 h-100 object-fit-cover">
+          </div>
+          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+            <span class="badge rounded-pill text-bg-light border">Agentic AI</span>
+            <span class="badge rounded-pill text-bg-light border">RAG</span>
+            <span class="badge rounded-pill text-bg-light border">LLM Apps</span>
+            <span class="badge rounded-pill text-bg-light border">Data Pipelines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESUME -->
+  <section id="resume" class="py-5">
+    <div class="container">
+      <div class="d-flex align-items-center mb-3">
+        <h2 class="fw-semibold mb-0">Resume</h2>
+        <div class="ms-3 flex-grow-1 border-bottom"></div>
+      </div>
+
+      <div class="row g-4">
+        <!-- EXPERIENCE (Accordion timeline style) -->
+        <div class="col-lg-7">
+          <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-briefcase me-2"></i>Experience</h3>
+
+            <div class="accordion" id="expAccordion">
+              <!-- IONNOVA -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="exp1">
+                  <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp1c" aria-expanded="true" aria-controls="exp1c">
+                    Agentic AI & Generative AI Developer — IONNOVA LLC <span class="ms-2 text-muted">(Jan 2025 – Present)</span>
+                  </button>
+                </h2>
+                <div id="exp1c" class="accordion-collapse collapse show" aria-labelledby="exp1" data-bs-parent="#expAccordion">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Architect modular AI agents using LangChain, LangGraph, and custom Python tooling.</li>
+                      <li>Build scalable LLM pipelines integrating OpenAI, Gemini, Pinecone, and Chroma for semantic search and RAG.</li>
+                      <li>Deliver one-on-one onboarding and technical courses in LLMs, agentic AI, and RAG workflows.</li>
+                      <li>Translate cutting-edge AI research into practical solutions with strong evaluation and logging.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Metrocare -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="exp2">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp2c" aria-expanded="false" aria-controls="exp2c">
+                    Lead Software & AI Developer — Metrocare Services <span class="ms-2 text-muted">(Sep 2021 – Dec 2024)</span>
+                  </button>
+                </h2>
+                <div id="exp2c" class="accordion-collapse collapse" aria-labelledby="exp2" data-bs-parent="#expAccordion">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Deployed LLM applications and agentic systems to automate clinical workflows.</li>
+                      <li>Designed prompt engineering and RAG pipelines for decision support.</li>
+                      <li>Integrated generative models with secure APIs and cloud infrastructure.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Caliber -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="exp3">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp3c" aria-expanded="false" aria-controls="exp3c">
+                    Senior Software Developer — Caliber Home Loans <span class="ms-2 text-muted">(Mar 2021 – Sep 2021)</span>
+                  </button>
+                </h2>
+                <div id="exp3c" class="accordion-collapse collapse" aria-labelledby="exp3" data-bs-parent="#expAccordion">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Developed NLP solutions for sentiment and service quality analysis.</li>
+                      <li>Built predictive mortgage risk models using scikit-learn and TensorFlow.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lennox -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="exp4">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp4c" aria-expanded="false" aria-controls="exp4c">
+                    Software Developer — Lennox International <span class="ms-2 text-muted">(Jun 2019 – Aug 2020)</span>
+                  </button>
+                </h2>
+                <div id="exp4c" class="accordion-collapse collapse" aria-labelledby="exp4" data-bs-parent="#expAccordion">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Engineered rule-based automation for ETO workflows (.NET, SQL Server).</li>
+                      <li>Built modular components for product configuration and business rules.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DMS -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="exp5">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#exp5c" aria-expanded="false" aria-controls="exp5c">
+                    Data Engineer — Digital Matrix Systems <span class="ms-2 text-muted">(Jan 2018 – Dec 2018)</span>
+                  </button>
+                </h2>
+                <div id="exp5c" class="accordion-collapse collapse" aria-labelledby="exp5" data-bs-parent="#expAccordion">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Built credit risk models and statistical analyses.</li>
+                      <li>Designed ETL workflows and SQL Server data warehouses.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /accordion -->
+          </div>
+        </div>
+
+        <!-- EDUCATION + SKILLS + CERTS -->
+        <div class="col-lg-5">
+          <div class="p-4 bg-white rounded-4 shadow-sm mb-4">
+            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-graduation-cap me-2"></i>Education</h3>
+            <ul class="mb-0">
+              <li class="mb-2"><strong>MS, Mathematics</strong> — Indiana State University (Aug 2022)</li>
+              <li class="mb-2"><strong>BA, Mathematics</strong> — Southern New Hampshire University (Aug 2020)</li>
+              <li><strong>AS, Software Engineering</strong> — Dallas College (Dec 2017)</li>
+            </ul>
+          </div>
+
+          <div class="p-4 bg-white rounded-4 shadow-sm mb-4">
+            <h3 class="h5 fw-semibold text-primary mb-3"><i class="fa-solid fa-screwdriver-wrench me-2"></i>Skills</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill text-bg-light border">LangChain</span>
+              <span class="badge rounded-pill text-bg-light border">LangGraph</span>
+              <span class="badge rounded-pill text-bg-light border">RAG</span>
+              <span class="badge rounded-pill text-bg-light border">OpenAI</span>
+              <span class="badge rounded-pill text-bg-light border">Gemini</span>
+              <span class="badge rounded-pill text-bg-light border">Pinecone</span>
+              <span class="badge rounded-pill text-bg-light border">Chroma</span>
+              <span class="badge rounded-pill text-bg-light border">Python</span>
+              <span class="badge rounded-pill text-bg-light border">PySpark</span>
+              <span class="badge rounded-pill text-bg-light border">SQL</span>
+              <span class="badge rounded-pill text-bg-light border">TensorFlow</span>
+              <span class="badge rounded-pill text-bg-light border">scikit-learn</span>
+              <span class="badge rounded-pill text-bg-light border">Power BI</span>
+              <span class="badge rounded-pill text-bg-light border">Tableau</span>
+            </div>
+          </div>
+
+          <div class="p-4 bg-white rounded-4 shadow-sm">
+            <div class="d-flex align-items-center justify-content-between">
+              <h3 class="h5 fw-semibold text-primary mb-0"><i class="fa-solid fa-certificate me-2"></i>Certifications</h3>
+              <a href="pdf/Resume.pdf" class="btn btn-sm btn-warning fw-semibold"><i class="fa-solid fa-download me-1"></i>Download PDF</a>
+            </div>
+            <ul class="mb-0 mt-3">
+              <li>MCSD: App Builder (2021)</li>
+              <li>MCSE: Data Management & Analytics (2020)</li>
+              <li>Tableau Desktop (2020)</li>
+            </ul>
+          </div>
+        </div>
+      </div> <!-- /row -->
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="py-5" style="background: linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);">
+    <div class="container">
+      <div class="d-flex align-items-center mb-3">
+        <h2 class="fw-semibold mb-0">Blog</h2>
+        <div class="ms-3 flex-grow-1 border-bottom"></div>
+      </div>
+
+      <p class="p-3 p-md-4 bg-white rounded-4 shadow-sm">
+        This collection of blogs on data science, analytics, and mathematics breaks down complex ideas into practical insights for learners and practitioners.
+      </p>
+
+      <div id="blog_div" class="row g-4">
+        <!-- Populated by Google Sheets below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="video" class="py-5">
+    <div class="container">
+      <div class="d-flex align-items-center mb-3">
+        <h2 class="fw-semibold mb-0">Videos</h2>
+        <div class="ms-3 flex-grow-1 border-bottom"></div>
+      </div>
+      <p class="text-muted">Featured videos will appear here.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5" style="background: linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-lg rounded-4">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="text-center fw-semibold mb-3">Get in Touch</h2>
+              <p id="formInstruction" class="text-center text-muted">Fill out the form below, and I'll get back to you as soon as possible.</p>
+              <p id="successInstruction" class="text-center text-muted d-none"></p>
+
+              <div id="formContainer">
+                <form id="contactForm" class="row g-3">
+                  <div class="col-12">
+                    <label for="name" class="form-label">Name*</label>
+                    <input type="text" id="name" name="name" class="form-control" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email*</label>
+                    <input type="email" id="email" name="email" class="form-control" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone*</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required />
+                  </div>
+                  <div class="col-12">
+                    <label for="comment" class="form-label">Message</label>
+                    <textarea id="comment" name="comment" class="form-control" rows="4"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+              <p id="responseMessage" class="text-success text-center mt-3 d-none"></p>
+              <p id="submittingMessage" class="text-info text-center mt-3 d-none">Your message is being submitted. Please wait...</p>
+            </div>
+          </div>
+
+          <!-- Socials -->
+          <div class="text-center mt-4">
+            <a class="text-body fs-4 me-3" href="mailto:solomon.tessema@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a class="text-body fs-4 me-3" href="https://www.linkedin.com/in/solomon-tessema" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a class="text-body fs-4 me-3" href="https://github.com/solomontessema" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a class="text-body fs-4 me-3" href="https://www.kaggle.com/solomonTTessema" target="_blank" aria-label="Kaggle"><i class="fab fa-kaggle"></i></a>
+            <a class="text-body fs-4" href="https://public.tableau.com/profile/solomontessema/vizzes" target="_blank" aria-label="Tableau"><i class="fas fa-chart-bar"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-white border-top">
+    <div class="container">
+      <p class="text-center text-muted mb-0">&copy; 2025 Solomon Tessema</p>
+    </div>
+  </footer>
+
+  <!-- DATA (Blog tiles from Google Sheets) -->
+  <script>
+    const spreadsheetId = "1uC34hI5AT2Uxrp5rVmEpsc07-4aRrKnRaMcjpiUVZJw";
+    const apiKey = "AIzaSyCAY4rjXddC2nK1TNbu5SEQawCYLty9k04";
+    const range = "blog_list!A1:C";
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+    async function populateArticles() {
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const container = document.getElementById("blog_div");
+        if (data.values && data.values.length > 1) {
+          data.values.slice(1).forEach(([name, link, image]) => {
+            const col = document.createElement("div");
+            col.className = "col-12 col-sm-6 col-lg-4";
+            col.innerHTML = `
+              <a href="${link}" class="card border-0 shadow-sm h-100 text-decoration-none">
+                <img src="${image}" alt="${name}" class="card-img-top" />
+                <div class="card-body">
+                  <p class="fw-semibold text-dark mb-0">${name}</p>
+                </div>
+              </a>
+            `;
+            container.appendChild(col);
+          });
+        }
+      } catch (e) { console.error(e); }
+    }
+    populateArticles();
+  </script>
+
+  <!-- CONTACT FORM (unchanged logic) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var contactForm = document.getElementById("contactForm");
+      var formContainer = document.getElementById("formContainer");
+      var submittingMessage = document.getElementById("submittingMessage");
+      var responseMessage = document.getElementById("responseMessage");
+      var formInstruction = document.getElementById("formInstruction");
+      var successInstruction = document.getElementById("successInstruction");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", async function(event) {
+          event.preventDefault();
+
+          formContainer.classList.add("d-none");
+          formInstruction.classList.add("d-none");
+          submittingMessage.classList.remove("d-none");
+          successInstruction.classList.remove("d-none");
+
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            comment: document.getElementById("comment").value,
+            source: "https://solomontessema.com"
+          };
+
+          try {
+            await fetch("https://script.google.com/macros/s/AKfycbwcFEvxqBnSuCc-epdKVA3eB4xdBduKP3oSyMswGuLhZr_0oPzMbf28Kj6JnfJkyKFM8Q/exec", {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData)
+            });
+
+            submittingMessage.classList.add("d-none");
+            responseMessage.classList.remove("d-none");
+            responseMessage.innerText = "Your message has been successfully submitted. I will reach you as soon as possible. Thank you!";
+            successInstruction.classList.add("d-none");
+            contactForm.reset();
+          } catch (error) {
+            console.error("Error submitting form:", error);
+            successInstruction.innerText = "An error occurred while submitting your message. Please try again later.";
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- NAVBAR scroll effect + active link on scroll -->
+  <script>
+    const nav = document.getElementById('topNav');
+    const links = [...document.querySelectorAll('.nav-link')];
+    const sections = [...document.querySelectorAll('section, header')];
+
+    function onScroll(){
+      // Darken navbar after 10px
+      if (window.scrollY > 10) {
+        nav.classList.add('bg-white','shadow-sm');
+        nav.classList.remove('bg-transparent');
+      } else {
+        nav.classList.add('bg-transparent');
+        nav.classList.remove('bg-white','shadow-sm');
+      }
+
+      // Active link highlighting
